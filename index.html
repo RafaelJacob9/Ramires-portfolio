@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramires Henrique - Data Analyst | Logistics Specialist</title>
-    <meta name="description" content="Data Analyst specializing in logistics, process automation, and business intelligence">
+    <title>Rafael Jacob - Analista de Logística | Data Analytics</title>
+    <meta name="description" content="Analista de Logística especializado em análise de dados, automação de processos e business intelligence">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,24 +12,578 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 212, 170, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-logo a {
+            color: #00d4aa;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00d4aa;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: #0a0a0a;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .nav-list {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: #00d4aa;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #00d4aa;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 1rem;
+        }
+
+        .btn-primary {
+            background: #00d4aa;
+            color: #0a0a0a;
+        }
+
+        .btn-primary:hover {
+            background: #00b894;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #00d4aa;
+            color: #00d4aa;
+        }
+
+        .btn-secondary:hover {
+            background: #00d4aa;
+            color: #0a0a0a;
+            transform: translateY(-2px);
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 50%;
+            border: 3px solid #00d4aa;
+            box-shadow: 0 0 30px rgba(0, 212, 170, 0.3);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: #00d4aa;
+            font-size: 1.1rem;
+        }
+
+        /* About */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-description {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: #00d4aa;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00d4aa;
+            border: 2px solid #00d4aa;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background: linear-gradient(to bottom, #00d4aa, transparent);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-period {
+            color: #00d4aa;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-tag {
+            background: rgba(0, 212, 170, 0.1);
+            color: #00d4aa;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #111111;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.2);
+        }
+
+        .project-placeholder {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .project-placeholder i {
+            font-size: 3rem;
+            color: #00d4aa;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #00d4aa;
+        }
+
+        .project-description {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(0, 212, 170, 0.1);
+            color: #00d4aa;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #111111;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 170, 0.2);
+        }
+
+        .category-title {
+            color: #00d4aa;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            background: rgba(0, 212, 170, 0.1);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-item i {
+            color: #00d4aa;
+        }
+
+        /* Contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: #111111;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            padding: 0;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            padding: 15px 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 212, 170, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon i {
+            font-size: 1.2rem;
+            color: #00d4aa;
+        }
+
+        .contact-details h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: #ffffff;
+        }
+
+        .contact-details p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            background: #111111;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4aa;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 212, 170, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00d4aa;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #00d4aa;
+            color: #0a0a0a;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: #050505;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 170, 0.2);
+        }
+
+        .footer p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 3rem;
+            color: #00d4aa;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">Ramires Henrique</a>
+                <a href="#home">Rafael Jacob</a>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="#home" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Experiência</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projetos</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Habilidades</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
                 </ul>
             </div>
             <div class="nav-toggle" id="nav-toggle">
@@ -45,20 +599,22 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">Hi, I'm <span class="highlight">Ramires Henrique</span></h1>
-                    <p class="hero-subtitle">Data Analyst & Logistics Specialist</p>
+                    <h1 class="hero-title">Olá, eu sou <span class="highlight">Rafael Jacob</span></h1>
+                    <p class="hero-subtitle">Analista de Logística & Data Analytics</p>
                     <p class="hero-description">
-                        3+ years of experience with analytical tools. Advanced Excel and Power BI, with SQL in progress. 
-                        Practical experience in Python (Pandas) for process automation and dashboard creation. 
-                        Driven by the challenge of transforming data into strategic insights and optimizing decision-making.
+                        Assistente de Logística na TopNutri, com formação em Análise e Desenvolvimento de Sistemas e Logística pela Uniube, 
+                        e atualmente cursando Pós-graduação em Administração de Empresas na FGV. Especialista em análise de dados, 
+                        automação de processos e dashboards interativos utilizando Excel, Power BI e Python.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">Explore Projects</a>
-                        <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                        <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-secondary">Contato</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="profile-photo.jpg" alt="Ramires Henrique" class="profile-img" onerror="this.src='https://via.placeholder.com/320x320?text=Photo'">
+                    <div class="project-placeholder" style="border-radius: 50%; width: 320px; height: 320px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="fas fa-user-circle" style="font-size: 8rem; color: #00d4aa;"></i>
+                    </div>
                 </div>
             </div>
             <div class="scroll-indicator">
@@ -71,32 +627,33 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Get to know my professional journey</p>
+                <h2 class="section-title">Sobre Mim</h2>
+                <p class="section-subtitle">Conheça minha trajetória profissional</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <p class="about-description">
-                        I'm a Data Analyst with a solid background in Logistics, combining operational experience with analytical skills. 
-                        My journey started in warehousing and inventory, which gave me a deep understanding of operational challenges. 
-                        Today, I use data to solve those same challenges through automation and business intelligence.
+                        Sou Assistente de Logística na TopNutri, onde atuo no faturamento, contratação de frete, gestão de transportadoras, 
+                        roteirização dos pedidos e análise de dados. Minha formação acadêmica em TI e Logística pela Uniube, combinada 
+                        com a especialização em Administração de Empresas na FGV, me permite ter uma visão estratégica e operacional dos processos logísticos.
                     </p>
                     <p class="about-description">
-                        I specialize in process automation using Python (Pandas, Openpyxl) and creating interactive dashboards in Power BI and Excel. 
-                        I'm fluent in English and French, which allows me to work in international environments and collaborate with global teams.
+                        Tenho experiência em extração, transformação e carregamento (ETL) de dados, desenvolvimento de dashboards interativos 
+                        em Power BI e Excel, e liderança de projetos de automação que geraram redução significativa no tempo de análise e 
+                        aumento da eficiência operacional.
                     </p>
                     <div class="about-stats">
                         <div class="stat">
                             <h3 class="stat-number">3+</h3>
-                            <p class="stat-label">Years Experience</p>
+                            <p class="stat-label">Anos de Experiência</p>
                         </div>
                         <div class="stat">
                             <h3 class="stat-number">3</h3>
-                            <p class="stat-label">Companies</p>
+                            <p class="stat-label">Empresas</p>
                         </div>
                         <div class="stat">
-                            <h3 class="stat-number">3</h3>
-                            <p class="stat-label">Automation Projects</p>
+                            <h3 class="stat-number">2</h3>
+                            <p class="stat-label">Idiomas</p>
                         </div>
                     </div>
                 </div>
@@ -108,29 +665,30 @@
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Professional Experience</h2>
-                <p class="section-subtitle">My journey through logistics and data analytics</p>
+                <h2 class="section-title">Experiência Profissional</h2>
+                <p class="section-subtitle">Minha jornada na logística e análise de dados</p>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <div class="timeline-period">May 2025 - Present</div>
-                        <h3 class="timeline-title">Logistics Administration (with emphasis on Data Analysis)</h3>
-                        <h4 class="timeline-company">TopNutri Nutrição Animal</h4>
+                        <div class="timeline-period">Fev. 2026 - Atualmente</div>
+                        <h3 class="timeline-title">Assistente de Logística</h3>
+                        <h4 class="timeline-company">TopNutri</h4>
                         <p class="timeline-description">
-                            Perform ETL (Extract, Transform, Load) of customer and carrier data from Sankhya ERP, using advanced Excel for consolidation and data quality assurance. 
-                            Develop interactive dashboards in Power BI and Excel for real-time monitoring.
+                            Realizo a extração, transformação e carregamento (ETL) de dados de clientes e transportadoras do sistema Sankhya, 
+                            utilizando Excel para consolidação e garantia da qualidade da informação. Desenvolvo dashboards interativos em 
+                            Power BI e Excel para monitoramento em tempo real da produção, níveis de estoque mínimo e faturamento.
                         </p>
                         <p class="timeline-description">
-                            <strong>Key Project:</strong> Led a process automation project that reduced daily cargo status update time from 4 hours to just 10 minutes.
+                            <strong>Projeto de destaque:</strong> Liderei o projeto de automação de processos para análise de produção da fábrica, 
+                            utilizando Power BI, que reduziu o tempo de análise e geração de relatórios, aumentando a eficiência operacional.
                         </p>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">Python</span>
-                            <span class="timeline-tag">Pandas</span>
                             <span class="timeline-tag">Power BI</span>
                             <span class="timeline-tag">Excel</span>
                             <span class="timeline-tag">Sankhya ERP</span>
+                            <span class="timeline-tag">ETL</span>
                         </div>
                     </div>
                 </div>
@@ -138,20 +696,45 @@
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <div class="timeline-period">2022 - 2024</div>
-                        <h3 class="timeline-title">Expedition (with emphasis on Data Analysis)</h3>
-                        <h4 class="timeline-company">BA Elétrica</h4>
+                        <div class="timeline-period">Jun. 2025 - Jan. 2026</div>
+                        <h3 class="timeline-title">Estagiário de Logística</h3>
+                        <h4 class="timeline-company">B.blend (JV Ambev & Whirlpool)</h4>
                         <p class="timeline-description">
-                            Implemented rotating inventory control and stock analysis via Excel, ensuring data accuracy and supporting the quality department.
+                            Atuei nas tratativas de devolução e SLAs em contato direto com transportadoras, armazém, time de atendimento e demais áreas. 
+                            Acompanhava e reportava os indicadores como volume e lead time. Utilizei ferramentas como Excel, Sankhya e Power BI para 
+                            analisar dados e gerar KPIs que ajudaram na melhoria dos processos logísticos.
                         </p>
                         <p class="timeline-description">
-                            <strong>Key Project:</strong> Developed an automated stock control model in Excel for over 20,000 products.
+                            <strong>Resultado:</strong> Redução do índice de reclamações do SAC em relação ao volume de pedidos faturados, de 0,38% para 0,21%.
                         </p>
                         <div class="timeline-tags">
                             <span class="timeline-tag">Excel</span>
-                            <span class="timeline-tag">TOTVS ERP</span>
-                            <span class="timeline-tag">Inventory Control</span>
-                            <span class="timeline-tag">Automation</span>
+                            <span class="timeline-tag">Power BI</span>
+                            <span class="timeline-tag">Sankhya</span>
+                            <span class="timeline-tag">KPIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-period">Nov. 2024 - Mar. 2025</div>
+                        <h3 class="timeline-title">Estagiário de Logística</h3>
+                        <h4 class="timeline-company">Centro de Distribuição de Baterias - Grupo Moura</h4>
+                        <p class="timeline-description">
+                            Realizei análises de KPIs, como a elaboração de relatórios diários de On Time Delivery (OTD) com Excel, Power BI e Fusion, 
+                            identificando oportunidades de melhoria que elevaram o OTD de 25% para 80%.
+                        </p>
+                        <p class="timeline-description">
+                            <strong>Resultado:</strong> Atuei na otimização de processos, com a redução do Lead Time de 2,5 para 1,5 dias nas regiões 
+                            de Uberlândia, Uberaba e Araguari, por meio da realocação estratégica de localidades e agentes.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Power BI</span>
+                            <span class="timeline-tag">Excel</span>
+                            <span class="timeline-tag">Fusion</span>
+                            <span class="timeline-tag">OTD</span>
                         </div>
                     </div>
                 </div>
@@ -159,242 +742,245 @@
         </div>
     </section>
 
-   <!-- Projects Section -->
+    <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Data analysis and automation projects I've led</p>
+                <h2 class="section-title">Projetos em Destaque</h2>
+                <p class="section-subtitle">Projetos de análise de dados e automação que liderei</p>
             </div>
             <div class="projects-grid">
-                <!-- Projeto 1 - Cargo Automation -->
-                <a href="cargo-automation.html" style="text-decoration: none; display: block;">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Cargo Status Automation</h3>
-                            <p class="project-description">
-                                Automated cargo status updates using Python (Pandas, Openpyxl) to extract data from Sankhya ERP. 
-                                Reduced update time from 4 hours daily to just 10 minutes.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">Sankhya</span>
-                                <span class="tech-tag">ETL</span> 
-                            </div>
+                <div class="project-card">
+                    <div class="project-placeholder">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Dashboard de Produção em Tempo Real</h3>
+                        <p class="project-description">
+                            Dashboard interativo em Power BI para monitoramento em tempo real da produção, níveis de estoque mínimo e faturamento, 
+                            fornecendo insights visuais para a tomada de decisão da gestão.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">DAX</span>
+                            <span class="tech-tag">Excel</span>
                         </div>
                     </div>
-                </a>
+                </div>
 
-                <!-- Projeto 2 - Stock Control -->
-                <a href="stock-control.html" style="text-decoration: none; display: block;">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <i class="fas fa-boxes"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Automated Stock Control System</h3>
-                            <p class="project-description">
-                                Excel-based automated system monitoring zero and minimum stock for 20,000+ products.
-                                Integrated with TOTVS ERP, eliminating manual control inaccuracies.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Excel</span>
-                                <span class="tech-tag">TOTVS</span>
-                                <span class="tech-tag">VBA</span>
-                                <span class="tech-tag">Inventory</span>
-                            </div>
+                <div class="project-card">
+                    <div class="project-placeholder">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automação de Análise de Produção</h3>
+                        <p class="project-description">
+                            Projeto de automação de processos para análise de produção da fábrica utilizando Power BI, reduzindo o tempo de análise 
+                            e geração de relatórios, aumentando a eficiência operacional.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Automação</span>
+                            <span class="tech-tag">ETL</span>
                         </div>
                     </div>
-                </a>
+                </div>
 
-                <!-- Projeto 3 - Production Dashboard -->
-                <a href="production-dashboard.html" style="text-decoration: none; display: block;">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Real-time Production Dashboard</h3>
-                            <p class="project-description">
-                                Interactive Power BI dashboard for real-time monitoring of production, minimum stock levels, and billing.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Power BI</span>
-                                <span class="tech-tag">DAX</span>
-                                <span class="tech-tag">Excel</span>
-                                <span class="tech-tag">Dashboards</span>
-                            </div>
+                <div class="project-card">
+                    <div class="project-placeholder">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Otimização de Lead Time</h3>
+                        <p class="project-description">
+                            Projeto de otimização de processos logísticos no Grupo Moura, reduzindo o Lead Time de 2,5 para 1,5 dias nas regiões 
+                            de Uberlândia, Uberaba e Araguari.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Excel</span>
+                            <span class="tech-tag">Análise de Dados</span>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-<section id="skills" class="skills">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <p class="section-subtitle">Tools and expertise I bring to the table</p>
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades & Tecnologias</h2>
+                <p class="section-subtitle">Ferramentas e expertise que utilizo no dia a dia</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title">Ferramentas de Análise</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><i class="fas fa-table"></i><span>Excel (Intermediário)</span></div>
+                        <div class="skill-item"><i class="fas fa-chart-pie"></i><span>Power BI</span></div>
+                        <div class="skill-item"><i class="fab fa-python"></i><span>Python (Pandas, Seaborn)</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">Sistemas & ERPs</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><i class="fas fa-cloud"></i><span>Sankhya</span></div>
+                        <div class="skill-item"><i class="fas fa-database"></i><span>SAP</span></div>
+                        <div class="skill-item"><i class="fas fa-exchange-alt"></i><span>ETL</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">Soft Skills</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><i class="fas fa-users"></i><span>Trabalho em equipe</span></div>
+                        <div class="skill-item"><i class="fas fa-bullhorn"></i><span>Comunicação</span></div>
+                        <div class="skill-item"><i class="fas fa-lightbulb"></i><span>Resolução de problemas</span></div>
+                        <div class="skill-item"><i class="fas fa-rocket"></i><span>Proatividade</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">Idiomas</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><i class="fas fa-language"></i><span>Inglês - Intermediário (B2)</span></div>
+                        <div class="skill-item"><i class="fas fa-language"></i><span>Espanhol - Avançado (C2)</span></div>
+                        <div class="skill-item"><i class="fas fa-futbol"></i><span>Intercâmbio esportivo</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">Formação Acadêmica</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><i class="fas fa-graduation-cap"></i><span>Pós - Administração - FGV (2025-2026)</span></div>
+                        <div class="skill-item"><i class="fas fa-graduation-cap"></i><span>Tecnólogo em Logística - Uniube</span></div>
+                        <div class="skill-item"><i class="fas fa-code"></i><span>Tecnólogo em ADS - Uniube</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">Cursos Complementares</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><i class="fas fa-chart-bar"></i><span>Ciência de Dados - Futebol Interativo</span></div>
+                        <div class="skill-item"><i class="fab fa-python"></i><span>Python para Análise de Dados - EBAC</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="skills-grid">
-            
-            <!-- Data Analysis Tools -->
-            <div class="skill-category">
-                <h3 class="category-title">Data Analysis Tools</h3>
-                <div class="skills-list">
-                    <div class="skill-item"><i class="fas fa-table"></i><span>Excel (Advanced)</span></div>
-                    <div class="skill-item"><i class="fas fa-chart-pie"></i><span>Power BI (Advanced)</span></div>
-                    <div class="skill-item"><i class="fas fa-code"></i><span>SQL (Intermediate)</span></div>
-                    <div class="skill-item"><i class="fab fa-python"></i><span>Python (Pandas)</span></div>
-                    <div class="skill-item"><i class="fas fa-robot"></i><span>Process Automation</span></div>
-                </div>
-            </div>
-
-            <!-- ERP Systems -->
-            <div class="skill-category">
-                <h3 class="category-title">ERP Systems</h3>
-                <div class="skills-list">
-                    <div class="skill-item"><i class="fas fa-database"></i><span>TOTVS</span></div>
-                    <div class="skill-item"><i class="fas fa-cloud"></i><span>Sankhya</span></div>
-                    <div class="skill-item"><i class="fas fa-exchange-alt"></i><span>ETL Processes</span></div>
-                </div>
-            </div>
-
-            <!-- Languages -->
-            <div class="skill-category">
-                <h3 class="category-title">Languages</h3>
-                <div class="skills-list">
-                    <div class="skill-item"><i class="fas fa-language"></i><span>English (Advanced)</span></div>
-                    <div class="skill-item"><i class="fas fa-language"></i><span>French (Advanced)</span></div>
-                    <div class="skill-item"><i class="fas fa-language"></i><span>Portuguese (Native)</span></div>
-                </div>
-            </div>
-
-            <!-- Education & Certifications -->
-            <div class="skill-category">
-                <h3 class="category-title">Education & Certifications</h3>
-                <div class="skills-list">
-                    <div class="skill-item"><i class="fas fa-graduation-cap"></i><span>Logistics Degree</span></div>
-                    <div class="skill-item"><i class="fab fa-google"></i><span>Google Data Analytics (in progress)</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Let's work together on your next data project</p>
-        </div>
-        <div class="contact-content">
-            
-            <!-- Informações de contato -->
-            <div class="contact-info">
-
-            <!-- Email -->
-            <div class="contact-item" style="padding: 0; margin: 0; user-select: text; -webkit-user-select: text;">
-                <div style="display: flex; align-items: center; gap: 20px; width: 100%; padding: 15px 20px; user-select: text; -webkit-user-select: text;">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Email</h3>
-                        <p style="user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; cursor: text;">ramireshsc@gmail.com</p>
-                    </div>
-                </div>
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Entre em Contato</h2>
+                <p class="section-subtitle">Vamos trabalhar juntos no seu próximo projeto de dados</p>
             </div>
-                
-                <!-- FIM Email -->
-                
-                <!-- Telefone -->
-                
-                <div class="contact-item" style="padding: 0; margin: 0; user-select: text; -webkit-user-select: text;">
-                    <div style="display: flex; align-items: center; gap: 20px; width: 100%; padding: 15px 20px; user-select: text; -webkit-user-select: text;">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p style="user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; cursor: text;">+55 34 98425-0502</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>rafajacob99@gmail.com</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- FIM Telefone -->
-                
-                <!-- LinkedIn -->
-                
-                <div class="contact-item" style="padding: 0; margin: 0;">
-                    <a href="https://linkedin.com/in/ramires-henrique" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: flex; align-items: center; gap: 20px; width: 100%; padding: 15px 20px; cursor: pointer; z-index: 10; position: relative;">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
+                    
+                    <div class="contact-item">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Telefone</h3>
+                                <p>(34) 99333-4242</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h3 style="color: #00d4aa;">LinkedIn</h3>
-                            <p style="color: #cbd5e1;">linkedin.com/in/ramires-henrique</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Localização</h3>
+                                <p>Rua Sintra, 90 - Granja Marileusa - Uberlândia/MG</p>
+                            </div>
                         </div>
-                    </a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
-                <!--FIM LinkedIn -->
-            
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                </div>
+
+                <form class="contact-form" action="https://formsubmit.co/rafajacob99@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="#">
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Seu email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Assunto" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                </form>
             </div>
-
-            <!-- Formulário de contato -->
-            <form class="contact-form" action="https://formsubmit.co/ramireshsc@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-
-                <input type="hidden" name="_next" value="https://ramireshenry.github.io/Ramires-portfolio/">
-                
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2024 Ramires Henrique. All rights reserved.</p>
-                <p>Data Analyst & Logistics Specialist Portfolio</p>
+                <p>&copy; 2026 Rafael Jacob. Todos os direitos reservados.</p>
+                <p>Analista de Logística & Data Analytics</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
-    <script src="js/script.js"></script>
-</body>
-</html>
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Navbar background change on scroll
